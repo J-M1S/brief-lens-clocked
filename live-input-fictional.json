@@ -1,0 +1,54 @@
+{
+  "text": "Fictional request: Please prepare one 1,200-word article about caring for indoor plants. The budget is $240 for the first article. We can provide a style guide. AI-generated drafts are allowed, but a person must check all facts. Please send a short outline before writing.",
+  "steps": [
+    {
+      "name": "evidence",
+      "extract": {
+        "fields": {
+          "budget": "The stated fee, budget, or compensation amount, with currency",
+          "deadline": "The stated deadline or delivery date",
+          "deliverable": "The stated deliverable, output, or item to be delivered",
+          "revisions": "The stated number or policy of revisions"
+        }
+      }
+    },
+    {
+      "name": "policy",
+      "decide": {
+        "questions": {
+          "ai_permission": {
+            "type": "choice",
+            "instructions": "What does the brief explicitly say about using AI? Do not infer permission from silence.",
+            "criteria": {
+              "allowed": "AI use is explicitly allowed",
+              "restricted": "AI use is explicitly restricted or prohibited",
+              "not_stated": "AI use is not addressed or is ambiguous"
+            }
+          },
+          "external_contact": {
+            "type": "choice",
+            "instructions": "Does the brief explicitly request communication outside the platform?",
+            "criteria": {
+              "requested": "Off-platform contact is requested",
+              "not_stated": "Off-platform contact is not requested or is ambiguous"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "question",
+      "fill": {
+        "fields": {
+          "follow_up": {
+            "type": "generate",
+            "description": "Draft one short, polite question asking the client to clarify a material missing condition. Do not invent facts. If nothing material is missing ask which condition to confirm first.",
+            "format": "text",
+            "max_tokens": 80
+          }
+        }
+      }
+    }
+  ],
+  "on_error": "continue"
+}

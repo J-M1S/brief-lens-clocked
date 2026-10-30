@@ -1,0 +1,131 @@
+{
+  "result": {
+    "model": "clocked-1.0",
+    "steps": [
+      {
+        "step": 0,
+        "endpoint": "extract",
+        "name": "evidence",
+        "status": 200,
+        "ms": 127,
+        "result": {
+          "model": "clocked-1.0",
+          "fields": {
+            "budget": {
+              "value": "$240",
+              "start": 103,
+              "end": 107,
+              "confidence": 0.9999999998881968,
+              "p_verify": 0.9999999998881968
+            },
+            "deadline": {
+              "value": null,
+              "confidence": 1
+            },
+            "deliverable": {
+              "value": "one 1,200-word article about caring for indoor plants",
+              "start": 34,
+              "end": 87,
+              "confidence": 0.9999999993224225,
+              "p_verify": 0.9999999993224225
+            },
+            "revisions": {
+              "value": null,
+              "confidence": 1
+            }
+          },
+          "timing": {
+            "read_ms": 118,
+            "forwards": {
+              "fields": [
+                5,
+                1
+              ]
+            },
+            "stages": {
+              "fields": {
+                "reader": "recognition",
+                "doc": 2,
+                "branches": 0,
+                "generate": 99,
+                "locate": 0,
+                "verify": 15,
+                "assemble": 0
+              }
+            },
+            "total_ms": 118,
+            "server_ms": 127
+          }
+        }
+      },
+      {
+        "step": 1,
+        "endpoint": "decide",
+        "name": "policy",
+        "status": 200,
+        "ms": 27,
+        "result": {
+          "model": "clocked-1.0",
+          "answers": {
+            "ai_permission": {
+              "type": "choice",
+              "choice": "allowed",
+              "probabilities": {
+                "allowed": 0.9953,
+                "restricted": 0.0025,
+                "not_stated": 0.0022
+              },
+              "confidence": 0.9929
+            },
+            "external_contact": {
+              "type": "choice",
+              "choice": "not_stated",
+              "probabilities": {
+                "requested": 0.0147,
+                "not_stated": 0.9853
+              },
+              "confidence": 0.9705
+            }
+          },
+          "usage": {
+            "input_tokens": 92,
+            "output_tokens": 5
+          }
+        }
+      },
+      {
+        "step": 2,
+        "endpoint": "fill",
+        "name": "question",
+        "status": 200,
+        "ms": 145,
+        "result": {
+          "model": "clocked-1.0",
+          "fields": {
+            "follow_up": {
+              "value": "Could you please clarify the deadline for the outline and the article?",
+              "confidence": 0.9844016608347791,
+              "source": "generated"
+            }
+          },
+          "timing": {
+            "read_ms": 12,
+            "generate_ms": 130,
+            "total_ms": 145,
+            "source_states": 1,
+            "source_prefills": 0,
+            "shared_source_tokens": 96,
+            "shared_read_generate_forwards": 0,
+            "engine": "unified"
+          }
+        }
+      }
+    ],
+    "stopped": null,
+    "timing": {
+      "total_ms": 301,
+      "model_ms": 137
+    }
+  },
+  "credits": "12"
+}
